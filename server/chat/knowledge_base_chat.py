@@ -54,6 +54,17 @@ async def knowledge_base_chat(query: str = Body(..., description="用户输入",
                               ),
                               request: Request = None,
                               ):
+    print("knowledge_base_chat:===========")
+    print("query:", query)
+    print("knowledge_base_name:", knowledge_base_name)
+    print("top_k:", top_k)
+    print("score_threshold:", score_threshold)
+    print("history:", history)
+    print("stream:", stream)
+    print("model_name:", model_name)
+    print("temperature:", temperature)
+    print("max_tokens:", max_tokens)
+    print("prompt_name:", prompt_name)
     kb = KBServiceFactory.get_service_by_name(knowledge_base_name)
     if kb is None:
         return BaseResponse(code=404, msg=f"未找到知识库 {knowledge_base_name}")
